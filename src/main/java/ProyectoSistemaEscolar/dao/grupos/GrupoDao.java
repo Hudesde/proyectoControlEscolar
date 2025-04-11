@@ -1,35 +1,29 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ */
 package ProyectoSistemaEscolar.dao.grupos;
+ 
+import ProyectoSistemaEscolar.bd.domain.Alumno;
+import ProyectoSistemaEscolar.bd.domain.Grupo;
+import java.util.ArrayList;
 
-public class GrupoDao {
-    private int id_grupo;
-    private String nombre;
+/**
+ *
+ * @author Alumnos
+ */
+public interface GrupoDao {
+    
+    public int registrarGrupo(Grupo nuevoGrupo);
+    
+    public boolean modificarGrupo(Grupo nuevoGrupo);
+    
+    public ArrayList<Grupo> listarGrupo();
+    public ArrayList<Alumno> listarAlumnosGrupo(int id);
+    
+    public ArrayList<Grupo> visualizarPorCarreraGrupo(String carrera);
+    public ArrayList<Grupo> visualizarPorSemestreGrupo(String semestre);
 
-    public GrupoDao() {
-        id_grupo = 0;
-        nombre = "";
-    }
-
-    public GrupoDao crearObjeto(int id, String nombre) {
-        GrupoDao grupo = new GrupoDao();
-        grupo.id_grupo = id;
-        grupo.nombre = nombre;
-        return grupo;
-    }
-
-    // Getters y Setters
-    public int getId_grupo() {
-        return id_grupo;
-    }
-
-    public void setId_grupo(int id_grupo) {
-        this.id_grupo = id_grupo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public boolean eliminarGrupo(int id);
+    
 }
